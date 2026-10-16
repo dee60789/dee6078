@@ -14,8 +14,8 @@ class APIKeyManager:
     def __init__(self):
         # 同時支援舊 AIzaSy 同新 AQ. Auth Key
         self.api_keys = re.findall(r"(?:AIzaSy[a-zA-Z0-9_-]{33}|AQ\.[a-zA-Z0-9_-]+)", settings.GEMINI_API_KEYS)
-# 加载更多 GEMINI_API_KEYS
-         for i in range(1, 99):
+        # 加载更多 GEMINI_API_KEYS
+        for i in range(1, 99):
             if keys := os.environ.get(f"GEMINI_API_KEYS_{i}", ""):
                 self.api_keys += re.findall(r"(?:AIzaSy[a-zA-Z0-9_-]{33}|AQ\.[a-zA-Z0-9_-]+)", keys)
             else:
