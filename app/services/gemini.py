@@ -544,7 +544,7 @@ class GeminiClient:
 
         return gemini_history, system_instruction
 
-    @staticmethod
+@staticmethod
     async def list_available_models(api_key) -> list:
         url = "https://generativelanguage.googleapis.com/v1beta/models?key={}".format(
             api_key
@@ -556,8 +556,13 @@ class GeminiClient:
             models = []
             for model in data.get("models", []):
                 models.append(model["name"])
+                # 支援 gemini-2 / gemini-3 / gemini-4 嘅 -search 聯網版本
                 if (
-                    model["name"].startswith("models/gemini-2")
+                    (
+                        model["name"].startswith("models/gemini-2")
+                        or model["name"].startswith("models/gemini-3")
+                        or model["name"].startswith("models/gemini-4")
+                    )
                     and settings.search["search_mode"]
                 ):
                     models.append(model["name"] + "-search")
