@@ -544,7 +544,7 @@ class GeminiClient:
 
         return gemini_history, system_instruction
 
-@staticmethod
+    @staticmethod
     async def list_available_models(api_key) -> list:
         url = "https://generativelanguage.googleapis.com/v1beta/models?key={}".format(
             api_key
