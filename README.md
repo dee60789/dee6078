@@ -27,6 +27,10 @@
 - ~~[zeabur部署的使用文档(需付费)](./wiki/zeabur.md) 感谢**墨舞ink**编写~~（已过时且暂时无人更新，欢迎提交pull requests）
 
 ###  更新日志
+#-1.1.0：適配新Gemini AQ.字頭Api.key、修復3-4的search功能
+
+
+
 * v1.0.2
    * 修复 400 错误
 
